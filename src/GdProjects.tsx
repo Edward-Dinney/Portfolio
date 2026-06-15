@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { usePreloadImages } from './usePreloadImages';
 import { useNavigate } from 'react-router-dom';
 
 const graphicsContext = (require as any).context(
@@ -15,6 +16,7 @@ function imageUrls(): string[] {
 function Gd() {
   const navigate = useNavigate();
   const urls = React.useMemo(imageUrls, []);
+  usePreloadImages(urls);
   const [hoveredImage, setHoveredImage] = React.useState<string | null>(null);
 
   return (
@@ -37,7 +39,7 @@ function Gd() {
               onMouseEnter={() => setHoveredImage(src)}
               onClick={() => window.open(src, '_blank', 'noopener,noreferrer')}
             >
-              <img src={src} alt="" loading="lazy" />
+              <img src={src} alt="" />
             </div>
           ))}
         </div>

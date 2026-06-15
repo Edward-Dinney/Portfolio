@@ -14,6 +14,7 @@ import code from './assets/code2.gif';
 import aboutme from './assets/pfp.png';
 import Cv from './assets/Resume.pdf';
 import { useNavigate } from 'react-router-dom';
+import { usePreloadImages } from './usePreloadImages';
 import './App.css';
 
 function App() {
@@ -27,7 +28,17 @@ function App() {
     link.download = 'EdwardDinneyCV.pdf';
     link.click();
   };
-  
+
+  const images = React.useMemo(
+    () => [
+      background, crouch, crouchRed, rifle, rifleRed,
+      four, five, standing, standingRed, seven,
+      paint, code, aboutme,
+    ],
+    [],
+  );
+  usePreloadImages(images);
+
   return (
     <div className="App">
       <div className="Header">
