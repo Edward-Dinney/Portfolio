@@ -455,6 +455,11 @@
   border: 2px solid #ff0000;
 }
 
+.Tees-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
 .Tees .project-item {
   display: flex;
   flex-direction: column;

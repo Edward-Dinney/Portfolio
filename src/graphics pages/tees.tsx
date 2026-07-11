@@ -85,8 +85,20 @@ function Tees() {
       }
     };
 
+    const onWheel = (event: WheelEvent) => {
+      const delta =
+        Math.abs(event.deltaX) > Math.abs(event.deltaY)
+          ? event.deltaX
+          : event.deltaY;
+      if (delta === 0) return;
+
+      event.preventDefault();
+      sidebar.scrollLeft += delta;
+    };
+
     syncSetWidth();
     sidebar.addEventListener('scroll', onScroll, { passive: true });
+    sidebar.addEventListener('wheel', onWheel, { passive: false });
 
     const onResize = () => syncSetWidth(true);
     window.addEventListener('resize', onResize);
@@ -96,6 +108,7 @@ function Tees() {
 
     return () => {
       sidebar.removeEventListener('scroll', onScroll);
+      sidebar.removeEventListener('wheel', onWheel);
       window.removeEventListener('resize', onResize);
       resizeObserver.disconnect();
     };
