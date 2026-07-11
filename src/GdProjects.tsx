@@ -15,6 +15,14 @@ function Gd() {
   const [cursorPos, setCursorPos] = React.useState({ x: 0, y: 0 });
   const [showCursorTag, setShowCursorTag] = React.useState(false);
   const sidebarRef = React.useRef<HTMLDivElement>(null);
+  const cursorTagRef = React.useRef<HTMLDivElement>(null);
+
+  React.useLayoutEffect(() => {
+    const tag = cursorTagRef.current;
+    if (!tag) return;
+    tag.style.left = `${cursorPos.x + 12}px`;
+    tag.style.top = `${cursorPos.y + 12}px`;
+  }, [cursorPos.x, cursorPos.y, showCursorTag]);
 
   const handleItemEnter = (project: Project, event: React.MouseEvent) => {
     setHoveredProject(project);
@@ -89,10 +97,7 @@ function Gd() {
       </div>
       </div>
       {showCursorTag && hoveredProject && (
-        <div
-          className="gallery-cursor-tag"
-          style={{ left: cursorPos.x + 12, top: cursorPos.y + 12 }}
-        >
+        <div ref={cursorTagRef} className="gallery-cursor-tag">
           {hoveredProject.title}
         </div>
       )}
