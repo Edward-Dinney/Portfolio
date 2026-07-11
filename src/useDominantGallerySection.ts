@@ -53,10 +53,12 @@ export function useDominantGallerySection<T extends string>(
     const gallery = galleryRef.current;
     if (!gallery) return;
 
+    const ids = sectionKey.split('|') as T[];
+
     const update = () => {
       const totals = new Map<T, number>();
 
-      for (const sectionId of sectionIds) {
+      for (const sectionId of ids) {
         totals.set(sectionId, 0);
       }
 
