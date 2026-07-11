@@ -6,6 +6,9 @@ import Info from './info';
 import Sw from './SwProjects';
 import Gd from './GdProjects';
 import Contact from './contact';
+import Screamingheads from './graphics pages/screamingheads';
+import Scarymonsters from './graphics pages/scarymonsters';
+import Tees from './graphics pages/tees';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -20,6 +23,9 @@ root.render(
         <Route path="/info" element={<Info />} />
         <Route path="/sw-projects" element={<Sw />} />
         <Route path="/gd-projects" element={<Gd />} />
+        <Route path="/gd-projects/Screaming-Heads" element={<Screamingheads />} />
+        <Route path="/gd-projects/Scary-Monsters" element={<Scarymonsters />} />
+        <Route path="/gd-projects/T-Shirts" element={<Tees />} />
         <Route path="/contact" element={<Contact />} />
     </Routes>
     </Router>

@@ -33,7 +33,7 @@ function Sw() {
                 className="project-item"
               >
                 <img src={project.image} alt={project.title} />
-                <span className="project-title">{project.title}</span>
+                {/* <span className="project-title">{project.title}</span> */}
               </a>
             ))}
           </div>

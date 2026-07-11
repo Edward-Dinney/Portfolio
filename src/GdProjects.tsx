@@ -2,22 +2,47 @@ import React from 'react';
 import './App.css';
 import { usePreloadImages } from './usePreloadImages';
 import { useNavigate } from 'react-router-dom';
-
-const graphicsContext = (require as any).context(
-  './graphics',
-  false,
-  /\.(png|jpe?g|webp|gif)$/i,
-) as { keys: () => string[]; (id: string): string };
-
-function imageUrls(): string[] {
-  return graphicsContext.keys().map((key) => graphicsContext(key) as string);
-}
+import projects, { type Project } from './gdProjectsList';
 
 function Gd() {
   const navigate = useNavigate();
-  const urls = React.useMemo(imageUrls, []);
+  const urls = React.useMemo(
+    () => projects.flatMap((project) => [project.image, project.previewImage]),
+    [],
+  );
   usePreloadImages(urls);
-  const [hoveredImage, setHoveredImage] = React.useState<string | null>(null);
+  const [hoveredProject, setHoveredProject] = React.useState<Project | null>(null);
+  const [cursorPos, setCursorPos] = React.useState({ x: 0, y: 0 });
+  const [showCursorTag, setShowCursorTag] = React.useState(false);
+  const sidebarRef = React.useRef<HTMLDivElement>(null);
+
+  const handleItemEnter = (project: Project, event: React.MouseEvent) => {
+    setHoveredProject(project);
+    setCursorPos({ x: event.clientX, y: event.clientY });
+    setShowCursorTag(true);
+  };
+
+  const handleItemMove = (event: React.MouseEvent) => {
+    const sidebar = sidebarRef.current;
+    if (!sidebar) return;
+
+    const rect = sidebar.getBoundingClientRect();
+    const inSidebar =
+      event.clientX >= rect.left &&
+      event.clientX <= rect.right &&
+      event.clientY >= rect.top &&
+      event.clientY <= rect.bottom;
+
+    setShowCursorTag(inSidebar);
+    if (inSidebar) {
+      setCursorPos({ x: event.clientX, y: event.clientY });
+    }
+  };
+
+  const handleItemLeave = () => {
+    setHoveredProject(null);
+    setShowCursorTag(false);
+  };
 
   return (
     <div className="gallery-page">
@@ -30,16 +55,19 @@ function Gd() {
       </button>
       <div className="gallery-layout">
       {/* LEFT */}
-      <div className="gallery-sidebar">
+      <div className="gallery-sidebar" ref={sidebarRef}>
+        <span className="gallery-side-label" aria-hidden="true">Projects</span>
         <div className="gallery-grid">
-          {urls.map((src) => (
+          {projects.map((project) => (
             <div
-              key={src}
+              key={project.url}
               className="gallery-item"
-              onMouseEnter={() => setHoveredImage(src)}
-              onClick={() => window.open(src, '_blank', 'noopener,noreferrer')}
+              onMouseEnter={(event) => handleItemEnter(project, event)}
+              onMouseMove={handleItemMove}
+              onMouseLeave={handleItemLeave}
+              onClick={() => navigate(new URL(project.url).pathname)}
             >
-              <img src={src} alt="" />
+              <img src={project.image} alt={project.title} />
             </div>
           ))}
         </div>
@@ -47,15 +75,27 @@ function Gd() {
 
       {/* RIGHT */}
       <div className="gallery-preview">
-        {hoveredImage ? (
-          <img src={hoveredImage} alt="" />
-        ) : (
-          <div className="preview-placeholder">
-            Hover an image
-          </div>
+        {!hoveredProject && (
+          <span className="gallery-side-label" aria-hidden="true">Preview</span>
         )}
+        {hoveredProject ? (
+          <div className="gallery-preview-content">
+            <img src={hoveredProject.previewImage} alt={hoveredProject.title} />
+            <div className="gallery-preview-caption">
+              <h2 className="gallery-preview-title">{hoveredProject.title}</h2>
+            </div>
+          </div>
+        ) : null}
       </div>
       </div>
+      {showCursorTag && hoveredProject && (
+        <div
+          className="gallery-cursor-tag"
+          style={{ left: cursorPos.x + 12, top: cursorPos.y + 12 }}
+        >
+          {hoveredProject.title}
+        </div>
+      )}
     </div>
   );
 }
