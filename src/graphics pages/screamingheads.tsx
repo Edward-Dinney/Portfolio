@@ -88,7 +88,12 @@ function Screamingheads() {
               style={{ gridRow: index + 1 }}
             >
               <div className="graphics-item-media">
-                <img src={item.src} alt={item.alt} />
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  loading={index < 2 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
               </div>
               <div className="graphics-item-label">
                 <span className="graphics-item-divider" aria-hidden="true" />
@@ -116,7 +121,12 @@ function Screamingheads() {
                 style={{ gridRow: merchItems.length + 2 + index }}
               >
                 <div className="graphics-item-media">
-                  <img src={item.src} alt={item.alt} />
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <div className="graphics-item-label">
                   <span className="graphics-item-divider" aria-hidden="true" />

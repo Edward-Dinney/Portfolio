@@ -1,16 +1,22 @@
 import React from 'react';
 import './App.css';
-import { usePreloadImages } from './usePreloadImages';
+import { usePreloadImages, prefetchImage } from './usePreloadImages';
 import { useNavigate } from 'react-router-dom';
 import projects, { type Project } from './gdProjectsList';
 
+const routePrefetchers: Record<string, () => Promise<unknown>> = {
+  'Screaming-Heads': () => import('./graphics pages/screamingheads'),
+  'Scary-Monsters': () => import('./graphics pages/scarymonsters'),
+  'T-Shirts': () => import('./graphics pages/tees'),
+};
+
 function Gd() {
   const navigate = useNavigate();
-  const urls = React.useMemo(
-    () => projects.flatMap((project) => [project.image, project.previewImage]),
+  const thumbnailUrls = React.useMemo(
+    () => projects.map((project) => project.image),
     [],
   );
-  usePreloadImages(urls);
+  usePreloadImages(thumbnailUrls);
   const [hoveredProject, setHoveredProject] = React.useState<Project | null>(null);
   const [cursorPos, setCursorPos] = React.useState({ x: 0, y: 0 });
   const [showCursorTag, setShowCursorTag] = React.useState(false);
@@ -25,6 +31,9 @@ function Gd() {
   }, [cursorPos.x, cursorPos.y, showCursorTag]);
 
   const handleItemEnter = (project: Project, event: React.MouseEvent) => {
+    prefetchImage(project.previewImage);
+    const segment = new URL(project.url).pathname.split('/').pop() ?? '';
+    routePrefetchers[segment]?.();
     setHoveredProject(project);
     setCursorPos({ x: event.clientX, y: event.clientY });
     setShowCursorTag(true);
@@ -75,7 +84,7 @@ function Gd() {
               onMouseLeave={handleItemLeave}
               onClick={() => navigate(new URL(project.url).pathname)}
             >
-              <img src={project.image} alt={project.title} />
+              <img src={project.image} alt={project.title} decoding="async" />
             </div>
           ))}
         </div>
@@ -88,7 +97,7 @@ function Gd() {
         )}
         {hoveredProject ? (
           <div className="gallery-preview-content">
-            <img src={hoveredProject.previewImage} alt={hoveredProject.title} />
+            <img src={hoveredProject.previewImage} alt={hoveredProject.title} decoding="async" />
             <div className="gallery-preview-caption">
               <h2 className="gallery-preview-title">{hoveredProject.title}</h2>
             </div>

@@ -14,7 +14,7 @@ import code from './assets/code2.gif';
 import aboutme from './assets/pfp.png';
 import Cv from './assets/Resume.pdf';
 import { useNavigate } from 'react-router-dom';
-import { usePreloadImages } from './usePreloadImages';
+import { usePreloadImages, useIdlePreloadImages } from './usePreloadImages';
 import './App.css';
 
 function App() {
@@ -29,15 +29,16 @@ function App() {
     link.click();
   };
 
-  const images = React.useMemo(
-    () => [
-      background, crouch, crouchRed, rifle, rifleRed,
-      four, five, standing, standingRed, seven,
-      paint, code, aboutme,
-    ],
+  const criticalImages = React.useMemo(
+    () => [background, crouch, rifle, standing, four, five, seven],
     [],
   );
-  usePreloadImages(images);
+  const hoverImages = React.useMemo(
+    () => [crouchRed, rifleRed, standingRed, paint, code, aboutme],
+    [],
+  );
+  usePreloadImages(criticalImages);
+  useIdlePreloadImages(hoverImages);
 
   return (
     <div className="App">
@@ -56,10 +57,10 @@ function App() {
         )}
         <div className="stack">
         
-        <img src={background} alt="background" className="background" />
-        <img src={four} alt="layer 4" className="extra extra-four" />
-        <img src={five} alt="layer 5" className="extra extra-five" />
-        <img src={seven} alt="layer 7" className="extra extra-seven" />
+        <img src={background} alt="background" className="background" fetchPriority="high" decoding="async" />
+        <img src={four} alt="layer 4" className="extra extra-four" decoding="async" />
+        <img src={five} alt="layer 5" className="extra extra-five" decoding="async" />
+        <img src={seven} alt="layer 7" className="extra extra-seven" decoding="async" />
         
         <div
           className="sprite sprite-standing hoverSwap"

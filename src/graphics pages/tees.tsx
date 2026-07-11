@@ -16,7 +16,6 @@ import prt from '../gd-assets/Tees/prt.png';
 import redMask from '../gd-assets/Tees/red mask.png';
 import stare from '../gd-assets/Tees/stare.png';
 import { useNavigate } from 'react-router-dom';
-import { usePreloadImages } from '../usePreloadImages';
 
 const teeItems = [
   { src: angels, alt: 'Angels tee design', label: 'Angels', className: 'tees-item-angels' },
@@ -43,8 +42,6 @@ function Tees() {
   const sidebarRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const setWidthRef = useRef(0);
-  const urls = React.useMemo(() => teeItems.map((item) => item.src), []);
-  usePreloadImages(urls);
 
   const loopItems = useMemo(
     () =>
@@ -116,11 +113,16 @@ function Tees() {
       <div className="projects-layout">
         <div className="projects-sidebar Tees-scroll" ref={sidebarRef}>
           <div className="projects-grid" ref={gridRef}>
-            {loopItems.map((item) => (
+            {loopItems.map((item, index) => (
               <div key={item.key} className={`project-item ${item.className}`}>
                 <span className="project-item-label">{item.alt}</span>
                 <div className="project-item-media">
-                  <img src={item.src} alt={item.alt} />
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    loading={index < 5 ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
                 </div>
               </div>
             ))}

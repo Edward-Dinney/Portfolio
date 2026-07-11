@@ -32,7 +32,7 @@ function Sw() {
                 rel="noopener noreferrer"
                 className="project-item"
               >
-                <img src={project.image} alt={project.title} />
+                <img src={project.image} alt={project.title} loading="lazy" decoding="async" />
                 {/* <span className="project-title">{project.title}</span> */}
               </a>
             ))}
