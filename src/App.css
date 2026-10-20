@@ -108,6 +108,12 @@
   font-size: 25px;
   justify-content: center;
   align-items: center;
+  animation: instructionsFade 2.5s ease-in-out infinite;
+}
+
+@keyframes instructionsFade {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
 }
 
 .stage {
@@ -229,8 +235,8 @@
 .displayLabel {
   position: absolute;
   left: 640px;
-  top: -8px;
-  transform: translateX(-100%);
+  top: 30%;
+  transform: translate(-100%, -50%);
   color: #ff0000;
   font-family: 'Scripter Serif';
   font-size: 17px;
@@ -406,12 +412,18 @@
 
 /* Projects CSS */
 .projects-layout {
+  position: relative;
   display: flex;
   flex: 1;
   width: 100%;
   min-height: 0;
   overflow: hidden;
   background: #ffffff;
+}
+
+.Instructions-projects {
+  top: auto;
+  bottom: 8%;
 }
 
 .projects-sidebar {

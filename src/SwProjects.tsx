@@ -38,6 +38,7 @@ function Sw() {
             ))}
           </div>
         </div>
+        <p className="Instructions Instructions-projects">Click to view projects</p>
       </div>
     </div>
   );

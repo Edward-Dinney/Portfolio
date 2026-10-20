@@ -81,7 +81,7 @@ function App() {
           className="sprite sprite-rifle hoverSwap"
           onMouseEnter={() => {
             setFuzzSrc(code);
-            setFuzzLabel("Coding Projects");
+            setFuzzLabel("Software Development");
           }}
           onMouseLeave={() => {
             setFuzzSrc("");
