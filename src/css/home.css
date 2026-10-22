@@ -1,0 +1,189 @@
+.App {
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Header {
+  position: absolute;
+  top: 2.5%;
+  left: 0;
+  right: 0;
+  transform: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  gap: 0px;
+  box-sizing: border-box;
+}
+
+.Header div {
+  background: transparent;
+  color: #ff0000;
+  font-family: 'Scripter Serif';
+  font-size: 65px;
+  padding: 5;
+}
+
+.Footer {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 230px;
+}
+
+.Footer button {
+  border: none;
+  background: transparent;
+  color: #ff0000;
+  font-family: 'Scripter Serif';
+  font-size: 17px;
+  cursor: pointer;
+  padding: 10;
+}
+
+.Footer button::before {
+  content: "";
+}
+
+.Footer button::after {
+  content: "";
+}
+
+.Footer button:hover {
+  color: rgb(21, 130, 255);
+  text-decoration: underline;
+}
+
+.stack {
+  position: relative;
+  width: 640px;
+  height: 411px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.stage {
+  position: relative;
+  width: 640px;
+  height: 411px;
+}
+
+.background {
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.sprite {
+  position: absolute;
+  transform-origin: bottom center;
+}
+
+.spriteImage {
+  display: block;
+  max-width: 100%;
+}
+
+.hoverSwap .normal {
+  position: relative;
+}
+
+.hoverSwap .red {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.hoverSwap:hover .red {
+  opacity: 1;
+}
+
+.hoverSwap:hover .normal {
+  opacity: 0;
+}
+
+.sprite-standing {
+  left: 5%;
+  bottom: 5%;
+  transform: scale(0.9);
+  z-index: 3;
+}
+
+.sprite-rifle {
+  left: 40%;
+  bottom: 18%;
+  transform: translateX(-50%) scale(0.9);
+}
+
+.sprite-crouch {
+  right: 15%;
+  bottom: 17%;
+  transform: scale(0.9);
+}
+
+.sprite-rifle,
+.sprite-crouch {
+  z-index: 1;
+}
+
+.sprite-standing:hover,
+.sprite-rifle:hover,
+.sprite-crouch:hover {
+  z-index: 999;
+}
+
+.extra {
+  position: absolute;
+}
+
+.extra-four {
+  left: 63%;
+  top: 58%;
+  z-index: 2;
+  transform: scale(1);
+}
+
+.extra-five {
+  left: 10.5%;
+  bottom: 0%;
+  z-index: 2;
+  transform: scale(1);
+}
+
+.extra-seven {
+  left: 0.25%;
+  bottom: .5%;
+  z-index: 4;
+  transform: scale(1);
+}
+
+.displayPreview {
+  position: absolute;
+  left: 0%;
+  top: -25%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.displayLabel {
+  position: absolute;
+  left: 640px;
+  top: 30%;
+  transform: translate(-100%, -50%);
+  color: #ff0000;
+  font-family: 'Scripter Serif';
+  font-size: 17px;
+  white-space: nowrap;
+  width: max-content;
+  line-height: 1;
+}

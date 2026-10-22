@@ -1,0 +1,53 @@
+.Tees-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.Tees .project-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: normal;
+}
+
+.Tees .project-item:hover {
+  transform: none;
+  border: none;
+}
+
+.Tees .project-item-media {
+  line-height: 0;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+}
+
+.Tees .project-item:hover .project-item-media {
+  transform: scale(1.01);
+  border-color: #ff0000;
+}
+
+.Tees .project-item-media img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: 65vh;
+  object-fit: contain;
+}
+
+.Tees .project-item-label {
+  margin-bottom: 6px;
+  padding: 0 4px;
+  color: rgb(21, 130, 255);
+  text-align: center;
+  font-family: 'Scripter Serif';
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.2;
+  opacity: 0;
+  pointer-events: none;
+  max-width: 28ch;
+}
+
+.Tees .project-item:hover .project-item-label {
+  opacity: 1;
+}

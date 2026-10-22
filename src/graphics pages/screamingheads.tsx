@@ -1,5 +1,7 @@
 import React, { useRef } from 'react';
-import '../App.css';
+import '../css/shared.css';
+import '../css/graphics.css';
+import '../css/screamingheads.css';
 import Flag from '../gd-assets/Screaming heads/reformate/flag.png';
 import Layout from '../gd-assets/Screaming heads/layout.png';
 import NY from '../gd-assets/Screaming heads/reformate/ny.png';

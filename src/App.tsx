@@ -15,7 +15,8 @@ import aboutme from './assets/pfp.png';
 import Cv from './assets/Resume.pdf';
 import { useNavigate } from 'react-router-dom';
 import { usePreloadImages, useIdlePreloadImages } from './usePreloadImages';
-import './App.css';
+import './css/shared.css';
+import './css/home.css';
 
 function App() {
   const navigate = useNavigate();

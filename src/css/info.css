@@ -1,0 +1,39 @@
+.info {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  box-sizing: border-box;
+  background: #ff0000;
+  min-height: 0;
+  overflow: auto;
+}
+
+.info-panel {
+  max-width: min(1000px, 100%);
+  padding: 48px 64px;
+  box-sizing: border-box;
+}
+
+.info-content {
+  color: rgb(252, 252, 252);
+  font-family: 'Scripter Serif';
+  font-size: 25px;
+  max-width: 100%;
+}
+
+.info-content h1 {
+  margin: 0 0 1rem;
+  text-align: center;
+  color: rgb(134, 7, 7);
+  z-index: 1;
+}
+
+.info-content p {
+  margin: 0;
+  text-align: left;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  z-index: 2;
+}

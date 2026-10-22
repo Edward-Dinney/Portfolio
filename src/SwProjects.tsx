@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css';
+import './css/shared.css';
+import './css/sw-projects.css';
 import { useNavigate } from 'react-router-dom';
 import { usePreloadImages } from './usePreloadImages';
 import projects from './swProjectList';

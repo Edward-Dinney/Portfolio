@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css';
+import './css/shared.css';
+import './css/gd-projects.css';
 import { usePreloadImages, prefetchImage } from './usePreloadImages';
 import { useNavigate } from 'react-router-dom';
 import projects, { type Project } from './gdProjectsList';

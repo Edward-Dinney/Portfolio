@@ -1,5 +1,7 @@
 import React, { useLayoutEffect, useMemo, useRef } from 'react';
-import '../App.css';
+import '../css/shared.css';
+import '../css/sw-projects.css';
+import '../css/tees.css';
 import angels from '../gd-assets/Tees/angels.png';
 import backPrint from '../gd-assets/Tees/back print.png';
 import band from '../gd-assets/Tees/band.png';

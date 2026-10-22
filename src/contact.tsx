@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css';
+import './css/shared.css';
+import './css/contact.css';
 import { useNavigate } from 'react-router-dom';
 
 function Contact() {

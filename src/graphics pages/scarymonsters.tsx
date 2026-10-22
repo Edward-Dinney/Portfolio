@@ -1,5 +1,7 @@
 import React, { useRef } from 'react';
-import '../App.css';
+import '../css/shared.css';
+import '../css/graphics.css';
+import '../css/scarymonsters.css';
 import logoSketch from '../gd-assets/Scary Monsters/1.jpg';
 import dollsHoodie from '../gd-assets/Scary Monsters/2.png';
 import dragonHero from '../gd-assets/Scary Monsters/3.png';

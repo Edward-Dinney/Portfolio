@@ -1,0 +1,50 @@
+.graphics-item {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 1.5rem;
+  align-self: flex-start;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.graphics-item-media {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: flex-end;
+}
+
+.graphics-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: stretch;
+  gap: 0.35rem;
+}
+
+.graphics-item img {
+  flex: 0 0 auto;
+  display: block;
+  max-height: 40vh;
+  width: auto;
+  object-fit: contain;
+}
+
+.graphics-item-divider {
+  flex: 0 0 1px;
+  width: 1px;
+  height: 50%;
+  align-self: flex-end;
+  background-color: #ffffff;
+}
+
+.graphics-item p {
+  margin: 0;
+  padding-bottom: 0;
+  align-self: flex-end;
+  font-family: 'Scripter Serif';
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  line-height: 1;
+}
