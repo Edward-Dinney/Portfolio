@@ -1,6 +1,6 @@
 import React from 'react';
-import './css/shared.css';
-import './css/info.css';
+import '../css/shared.css';
+import '../css/info.css';
 import { useNavigate } from 'react-router-dom';
 
 function Info() {

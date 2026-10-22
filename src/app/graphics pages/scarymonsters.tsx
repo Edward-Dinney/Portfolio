@@ -1,15 +1,15 @@
 import React, { useRef } from 'react';
-import '../css/shared.css';
-import '../css/graphics.css';
-import '../css/scarymonsters.css';
-import logoSketch from '../gd-assets/Scary Monsters/1.jpg';
-import dollsHoodie from '../gd-assets/Scary Monsters/2.png';
-import dragonHero from '../gd-assets/Scary Monsters/3.png';
-import graffitiHoodie from '../gd-assets/Scary Monsters/4.png';
-import maynoothLogo from '../gd-assets/Scary Monsters/5.png';
-import abstractGraphic from '../gd-assets/Scary Monsters/6.png';
+import '../../css/shared.css';
+import '../../css/graphics.css';
+import '../../css/scarymonsters.css';
+import logoSketch from '../../gd-assets/Scary Monsters/1.jpg';
+import dollsHoodie from '../../gd-assets/Scary Monsters/2.png';
+import dragonHero from '../../gd-assets/Scary Monsters/3.png';
+import graffitiHoodie from '../../gd-assets/Scary Monsters/4.png';
+import maynoothLogo from '../../gd-assets/Scary Monsters/5.png';
+import abstractGraphic from '../../gd-assets/Scary Monsters/6.png';
 import { useNavigate } from 'react-router-dom';
-import { useGallerySectionVisible } from '../useDominantGallerySection';
+import { useGallerySectionVisible } from '../../useDominantGallerySection';
 
 const merchItems = [
   { src: logoSketch, alt: 'Scary Monsters logo sketch', label: 'Logo Design', className: 'scary-monsters-item-logo-sketch' },

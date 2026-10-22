@@ -1,9 +1,9 @@
 import React from 'react';
-import './css/shared.css';
-import './css/sw-projects.css';
+import '../css/shared.css';
+import '../css/sw-projects.css';
 import { useNavigate } from 'react-router-dom';
-import { usePreloadImages } from './usePreloadImages';
-import projects from './swProjectList';
+import { usePreloadImages } from '../usePreloadImages';
+import projects from '../swProjectList';
 
 function Sw() {
   const navigate = useNavigate();

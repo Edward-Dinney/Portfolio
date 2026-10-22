@@ -1,23 +1,23 @@
 import React, { useRef } from 'react';
-import '../css/shared.css';
-import '../css/graphics.css';
-import '../css/screamingheads.css';
-import Flag from '../gd-assets/Screaming heads/reformate/flag.png';
-import Layout from '../gd-assets/Screaming heads/layout.png';
-import NY from '../gd-assets/Screaming heads/reformate/ny.png';
-import Star from '../gd-assets/Screaming heads/reformate/star.png';
-import Tee from '../gd-assets/Screaming heads/reformate/tshirt.png';
-import Front from '../gd-assets/Screaming heads/reformate/ls1front.png';
-import tsFront from '../gd-assets/Screaming heads/reformate/ts1front.png';
-import tsBack from '../gd-assets/Screaming heads/reformate/ts1back.png';
-import Vest from '../gd-assets/Screaming heads/vestfront.png';
-import one from '../gd-assets/Screaming heads/Promo material/1.png';
-import two from '../gd-assets/Screaming heads/Promo material/2.png';
-import three from '../gd-assets/Screaming heads/Promo material/3.png';
-import four from '../gd-assets/Screaming heads/Promo material/4.png';
-import five from '../gd-assets/Screaming heads/Promo material/5.png';
+import '../../css/shared.css';
+import '../../css/graphics.css';
+import '../../css/screamingheads.css';
+import Flag from '../../gd-assets/Screaming heads/reformate/flag.png';
+import Layout from '../../gd-assets/Screaming heads/layout.png';
+import NY from '../../gd-assets/Screaming heads/reformate/ny.png';
+import Star from '../../gd-assets/Screaming heads/reformate/star.png';
+import Tee from '../../gd-assets/Screaming heads/reformate/tshirt.png';
+import Front from '../../gd-assets/Screaming heads/reformate/ls1front.png';
+import tsFront from '../../gd-assets/Screaming heads/reformate/ts1front.png';
+import tsBack from '../../gd-assets/Screaming heads/reformate/ts1back.png';
+import Vest from '../../gd-assets/Screaming heads/vestfront.png';
+import one from '../../gd-assets/Screaming heads/Promo material/1.png';
+import two from '../../gd-assets/Screaming heads/Promo material/2.png';
+import three from '../../gd-assets/Screaming heads/Promo material/3.png';
+import four from '../../gd-assets/Screaming heads/Promo material/4.png';
+import five from '../../gd-assets/Screaming heads/Promo material/5.png';
 import { useNavigate } from 'react-router-dom';
-import { useDominantGallerySection } from '../useDominantGallerySection';
+import { useDominantGallerySection } from '../../useDominantGallerySection';
 
 const merchItems = [
   { src: Flag, alt: 'Flag', label: 'T-shirt Merch Graphic', className: 'graphics-item-flag' },

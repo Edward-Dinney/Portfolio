@@ -1,9 +1,9 @@
 import React from 'react';
-import './css/shared.css';
-import './css/gd-projects.css';
-import { usePreloadImages, prefetchImage } from './usePreloadImages';
+import '../css/shared.css';
+import '../css/gd-projects.css';
+import { usePreloadImages, prefetchImage } from '../usePreloadImages';
 import { useNavigate } from 'react-router-dom';
-import projects, { type Project } from './gdProjectsList';
+import projects, { type Project } from '../gdProjectsList';
 
 const routePrefetchers: Record<string, () => Promise<unknown>> = {
   'Screaming-Heads': () => import('./graphics pages/screamingheads'),

@@ -1,17 +1,17 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './css/index.css';
-import App from './App';
+import App from './app/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-const Info = React.lazy(() => import('./info'));
-const Sw = React.lazy(() => import('./SwProjects'));
-const Gd = React.lazy(() => import('./GdProjects'));
-const Contact = React.lazy(() => import('./contact'));
-const Screamingheads = React.lazy(() => import('./graphics pages/screamingheads'));
-const Scarymonsters = React.lazy(() => import('./graphics pages/scarymonsters'));
-const Tees = React.lazy(() => import('./graphics pages/tees'));
+const Info = React.lazy(() => import('./app/info'));
+const Sw = React.lazy(() => import('./app/SwProjects'));
+const Gd = React.lazy(() => import('./app/GdProjects'));
+const Contact = React.lazy(() => import('./app/contact'));
+const Screamingheads = React.lazy(() => import('./app/graphics pages/screamingheads'));
+const Scarymonsters = React.lazy(() => import('./app/graphics pages/scarymonsters'));
+const Tees = React.lazy(() => import('./app/graphics pages/tees'));
 
 function PageLoader() {
   return <div className="page-loader" aria-live="polite">Loading...</div>;
